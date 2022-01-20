@@ -1,5 +1,3 @@
-module github.com/things-labs/cicd-go-template
+module github.com/things-go/builder
 
-go 1.16
-
-require github.com/stretchr/testify v1.7.0
+go 1.17
