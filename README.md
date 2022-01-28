@@ -1,13 +1,13 @@
-# builder
-builder for gopher 
+# anyhow
+project tool for gopher 
 
-[![GoDoc](https://godoc.org/github.com/things-go/builder?status.svg)](https://godoc.org/github.com/things-go/builder)
-[![Go.Dev reference](https://img.shields.io/badge/go.dev-reference-blue?logo=go&logoColor=white)](https://pkg.go.dev/github.com/things-go/builder?tab=doc)
-[![codecov](https://codecov.io/gh/things-go/builder/branch/main/graph/badge.svg)](https://codecov.io/gh/things-go/builder)
-[![Tests](https://github.com/things-go/builder/actions/workflows/ci.yml/badge.svg)](https://github.com/things-go/builder/actions/workflows/ci.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/things-go/builder)](https://goreportcard.com/report/github.com/things-go/builder)
-[![Licence](https://img.shields.io/github/license/things-go/builder)](https://raw.githubusercontent.com/things-go/builder/main/LICENSE)
-[![Tag](https://img.shields.io/github/v/tag/things-go/builder)](https://github.com/things-go/builder/tags)
+[![GoDoc](https://godoc.org/github.com/things-go/anyhow?status.svg)](https://godoc.org/github.com/things-go/anyhow)
+[![Go.Dev reference](https://img.shields.io/badge/go.dev-reference-blue?logo=go&logoColor=white)](https://pkg.go.dev/github.com/things-go/anyhow?tab=doc)
+[![codecov](https://codecov.io/gh/things-go/anyhow/branch/main/graph/badge.svg)](https://codecov.io/gh/things-go/anyhow)
+[![Tests](https://github.com/things-go/anyhow/actions/workflows/ci.yml/badge.svg)](https://github.com/things-go/anyhow/actions/workflows/ci.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/things-go/anyhow)](https://goreportcard.com/report/github.com/things-go/anyhow)
+[![Licence](https://img.shields.io/github/license/things-go/anyhow)](https://raw.githubusercontent.com/things-go/anyhow/main/LICENSE)
+[![Tag](https://img.shields.io/github/v/tag/things-go/anyhow)](https://github.com/things-go/anyhow/tags)
 
 ## Usage
 
@@ -15,29 +15,12 @@ builder for gopher
 
 Use go get.
 ```bash
-    go get github.com/things-go/builder
+    go get github.com/things-go/anyhow
 ```
 
 Then import the package into your own code.
 ```bash
-    import "github.com/things-go/builder"
-```
-
-### Example
-
-see [Makefile](_example/Makefile)
-
-[embedmd]:# (_example/main.go go)
-```go
-package main
-
-import (
-	"github.com/things-go/builder"
-)
-
-func main() {
-	builder.Println()
-}
+    import "github.com/things-go/anyhow"
 ```
 
 ## References

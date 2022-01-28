@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/things-go/builder"
+	"github.com/things-go/anyhow/builder"
 )
 
 func main() {
