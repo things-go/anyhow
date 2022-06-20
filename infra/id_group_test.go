@@ -96,3 +96,95 @@ func TestParseIdsGroupInt(t *testing.T) {
 		})
 	}
 }
+
+func TestIdsGroup(t *testing.T) {
+	tests := []struct {
+		name string
+		ids  []int64
+		want string
+	}{
+		{
+			"empty nil",
+			nil,
+			"",
+		},
+		{
+			"empty",
+			[]int64{},
+			"",
+		},
+		{
+			"1",
+			[]int64{1},
+			"1",
+		},
+		{
+			"> 1",
+			[]int64{1, 10, 11, 12},
+			"1,10,11,12",
+		},
+		{
+			"> 1 contain dump value",
+			[]int64{1, 10, 11, 11, 12, 1},
+			"1,10,11,12",
+		},
+		{
+			"> 1 contain zero/dump value",
+			[]int64{0, 1, 10, 0, 11, 11, 0, 12},
+			"1,10,11,12",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := JoinGroup(tt.ids); got != tt.want {
+				t.Errorf("JoinGroup() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestIdsGroupInt(t *testing.T) {
+	tests := []struct {
+		name string
+		ids  []int
+		want string
+	}{
+		{
+			"empty nil",
+			nil,
+			"",
+		},
+		{
+			"empty",
+			[]int{},
+			"",
+		},
+		{
+			"1",
+			[]int{1},
+			"1",
+		},
+		{
+			"> 1",
+			[]int{1, 10, 11, 12},
+			"1,10,11,12",
+		},
+		{
+			"> 1 contain dump value",
+			[]int{1, 10, 11, 11, 12, 1},
+			"1,10,11,12",
+		},
+		{
+			"> 1 contain zero/dump value",
+			[]int{0, 1, 10, 0, 11, 11, 0, 12},
+			"1,10,11,12",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := JoinGroupInt(tt.ids); got != tt.want {
+				t.Errorf("JoinGroupInt() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
