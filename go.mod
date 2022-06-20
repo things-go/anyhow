@@ -4,7 +4,6 @@ go 1.17
 
 require (
 	github.com/stretchr/testify v1.7.2
-	github.com/things-go/x v0.0.6
 	gorm.io/driver/mysql v1.3.4
 	gorm.io/driver/postgres v1.3.7
 	gorm.io/driver/sqlite v1.3.4
