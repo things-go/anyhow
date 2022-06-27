@@ -3,7 +3,7 @@ module github.com/things-go/anyhow
 go 1.18
 
 require (
-	github.com/stretchr/testify v1.7.4
+	github.com/stretchr/testify v1.7.5
 	golang.org/x/exp v0.0.0-20220613132600-b0d781184e0d
 	gorm.io/driver/mysql v1.3.4
 	gorm.io/driver/postgres v1.3.7
