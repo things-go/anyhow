@@ -7,7 +7,7 @@ require (
 	golang.org/x/exp v0.0.0-20220613132600-b0d781184e0d
 	gorm.io/driver/mysql v1.3.5
 	gorm.io/driver/postgres v1.3.7
-	gorm.io/driver/sqlite v1.3.5
+	gorm.io/driver/sqlite v1.3.6
 	gorm.io/gorm v1.23.8
 )
 
