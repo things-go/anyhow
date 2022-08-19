@@ -5,6 +5,7 @@ import (
 	"os"
 	"path"
 	"strings"
+	"time"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -12,10 +13,26 @@ import (
 
 // Config 数据库配置
 type Config struct {
-	Dialect     string `yaml:"dialect" json:"dialect"` // mysql sqlite3 postgres and custom
-	Dsn         string `yaml:"dsn" json:"dsn"`
-	MaxIdleConn int    `yaml:"maxIdleConn" json:"maxIdleConn"`
-	MaxOpenConn int    `yaml:"maxOpenConn" json:"maxOpenConn"`
+	// mysql sqlite3 postgres and custom
+	Dialect string `yaml:"dialect" json:"dialect"`
+	// dsn
+	Dsn string `yaml:"dsn" json:"dsn"`
+	// MaxIdleConn sets the maximum number of open connections to the database.
+	// If n <= 0, then there is no limit on the number of open connections.
+	// The default is 0 (unlimited).
+	MaxIdleConn int `yaml:"maxIdleConn" json:"maxIdleConn"`
+	// MaxOpenConn sets the maximum number of open connections to the database.
+	// If n <= 0, then there is no limit on the number of open connections.
+	// The default is 0 (unlimited).
+	MaxOpenConn int `yaml:"maxOpenConn" json:"maxOpenConn"`
+	// MaxLifetime sets the maximum amount of time a connection may be reused.
+	// If d <= 0, connections are not closed due to a connection's age.
+	MaxLifetime time.Duration `yaml:"maxLifetime" json:"maxLifetime"`
+	// MaxIdleTime sets the maximum amount of time a connection may be idle.
+	// If d <= 0, connections are not closed due to a connection's idle time.
+	MaxIdleTime time.Duration `yaml:"maxIdleTime" json:"maxIdleTime"`
+	// EnableLog enabled log flag  use by user
+	EnableLog bool `yaml:"enableLog" json:"enableLog"`
 }
 
 func New(c Config, config *gorm.Config, dialectorNews ...func(c Config) gorm.Dialector) (*gorm.DB, error) {
@@ -58,10 +75,10 @@ func New(c Config, config *gorm.Config, dialectorNews ...func(c Config) gorm.Dia
 	if err != nil {
 		return nil, err
 	}
+
 	if c.MaxIdleConn > 0 {
 		sqlDB.SetMaxIdleConns(c.MaxIdleConn)
 	}
-
 	if c.MaxOpenConn > 0 {
 		sqlDB.SetMaxOpenConns(c.MaxOpenConn)
 	}
