@@ -3,13 +3,14 @@ module github.com/things-go/anyhow
 go 1.18
 
 require (
+	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1735
 	github.com/gin-gonic/gin v1.8.1
 	github.com/golang-jwt/jwt/v4 v4.4.2
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/stretchr/testify v1.8.0
 	github.com/things-go/clip v0.0.2
 	go.uber.org/zap v1.22.0
-	golang.org/x/exp v0.0.0-20220722155223-a9213eeb770e
+	golang.org/x/exp v0.0.0-20220823124025-807a23277127
 	gorm.io/driver/mysql v1.3.6
 	gorm.io/driver/postgres v1.3.9
 	gorm.io/driver/sqlite v1.3.6
@@ -37,6 +38,7 @@ require (
 	github.com/jackc/pgx/v4 v4.17.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
@@ -50,10 +52,11 @@ require (
 	go.uber.org/multierr v1.8.0 // indirect
 	golang.org/x/crypto v0.0.0-20220817201139-bc19a97f63c8 // indirect
 	golang.org/x/net v0.0.0-20220822230855-b0a4917ee28c // indirect
-	golang.org/x/sys v0.0.0-20220818161305-2296e01440c6 // indirect
+	golang.org/x/sys v0.0.0-20220823224334-20c2bfdbfe24 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
+	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
