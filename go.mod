@@ -4,8 +4,10 @@ go 1.18
 
 require (
 	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1735
+	github.com/aliyun/aliyun-oss-go-sdk v2.2.5+incompatible
 	github.com/gin-gonic/gin v1.8.1
 	github.com/golang-jwt/jwt/v4 v4.4.2
+	github.com/google/uuid v1.3.0
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/stretchr/testify v1.8.0
 	github.com/things-go/clip v0.0.2
