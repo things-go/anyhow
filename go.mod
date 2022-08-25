@@ -3,7 +3,7 @@ module github.com/things-go/anyhow
 go 1.18
 
 require (
-	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1736
+	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1737
 	github.com/aliyun/aliyun-oss-go-sdk v2.2.5+incompatible
 	github.com/gin-gonic/gin v1.8.1
 	github.com/golang-jwt/jwt/v4 v4.4.2
