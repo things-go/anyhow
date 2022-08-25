@@ -11,7 +11,7 @@ require (
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/stretchr/testify v1.8.0
 	github.com/things-go/clip v0.0.2
-	go.uber.org/zap v1.22.0
+	go.uber.org/zap v1.23.0
 	golang.org/x/exp v0.0.0-20220823124025-807a23277127
 	gorm.io/driver/mysql v1.3.6
 	gorm.io/driver/postgres v1.3.9
