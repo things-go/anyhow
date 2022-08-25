@@ -33,7 +33,7 @@ type Config struct {
 }
 
 type Client struct {
-	client *sts.Client
+	*sts.Client
 	Config
 }
 
@@ -43,7 +43,7 @@ func NewClient(c Config) (*Client, error) {
 		return nil, err
 	}
 	return &Client{
-		client: client,
+		Client: client,
 		Config: c,
 	}, nil
 }
@@ -56,7 +56,7 @@ func (sf *Client) AssumeRole() (*sts.Credentials, error) {
 	req.Policy = sf.Policy
 	req.DurationSeconds = requests.NewInteger(sf.Expiration)
 
-	rsp, err := sf.client.AssumeRole(req)
+	rsp, err := sf.Client.AssumeRole(req)
 	if err != nil {
 		return nil, err
 	}
