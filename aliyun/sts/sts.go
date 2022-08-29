@@ -18,18 +18,23 @@ const (
 	Policy = ""
 	// 过期时间: 单位为秒
 	//      最小值为900秒,
-	//      最大值为MaxSessionDuration设置的时间. 默认值为3600秒。
+	//      最大值为 MaxSessionDuration 设置的时间. 默认值为3600秒。
 	TokenExpireSeconds = 900
 )
 
 type Config struct {
-	AccessKeyId     string `yaml:"access_key_id" json:"access_key_id"`         // 阿里的key
-	AccessKeySecret string `yaml:"access_key_secret" json:"access_key_secret"` // 阿里的secret
-	RoleArn         string `yaml:"role_arn" json:"role_arn"`                   // 角色
-	RegionId        string `yaml:"region_id" json:"region_id"`                 // STS服务的接入地址
-	RoleSessionName string `yaml:"role_session_name" json:"role_session_name"` // 用户自定义参数.此参数用来区分不同的令牌,可用于用户级别的访问审计
-	Policy          string `yaml:"policy" json:"policy"`                       // 权限策略, 默认: 空
-	Expiration      int    `yaml:"expiration" json:"expiration"`               // 过期时间(单位为秒),最小值为900秒, 最大值为MaxSessionDuration设置的时间. 默认值为3600秒。
+	// required
+	AccessKeyId string `yaml:"access_key_id" json:"access_key_id" binding:"required"` // 阿里的key
+	// required
+	AccessKeySecret string `yaml:"access_key_secret" json:"access_key_secret" binding:"required"` // 阿里的secret
+	// required
+	RoleArn string `yaml:"role_arn" json:"role_arn" binding:"required"` // 角色
+	// required
+	RegionId        string `yaml:"region_id" json:"region_id" binding:"required"` // STS服务的接入地址
+	RoleSessionName string `yaml:"role_session_name" json:"role_session_name"`    // 用户自定义参数.此参数用来区分不同的令牌,可用于用户级别的访问审计
+	Policy          string `yaml:"policy" json:"policy"`                          // 权限策略, 默认: 空
+	// required
+	Expiration int `yaml:"expiration" json:"expiration" binding:"gte=900"` // 过期时间(单位为秒),最小值为900秒, 最大值为MaxSessionDuration设置的时间. 默认值为3600秒。
 }
 
 type Client struct {

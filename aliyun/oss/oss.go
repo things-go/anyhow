@@ -11,20 +11,60 @@ import (
 var ErrInvalidKey = errors.New("invalid key")
 
 type Config struct {
-	AccessKeyId     string `json:"access_key_id" yaml:"access_key_id"`
-	AccessKeySecret string `json:"access_key_secret" yaml:"access_key_secret"`
+	// required
+	AccessKeyId string `json:"accessKeyId" yaml:"accessKeyId" binding:"required"`
+	// required
+	AccessKeySecret string `json:"accessKeySecret" yaml:"accessKeySecret" binding:"required"`
 	// 角色权限
-	RoleArn string `json:"role_arn" yaml:"role_arn"`
+	// required
+	RoleArn string `json:"roleArn" yaml:"roleArn" binding:"required"`
+	// 区域: oss-cn-guangzhou
+	// required
+	Region string `yaml:"region" json:"region" binding:"required"`
 	// 外网端点: 例如 https://oss-cn-shenzhen.aliyuncs.com
-	Endpoint string `json:"endpoint" yaml:"endpoint"`
+	// required
+	Endpoint string `json:"endpoint" yaml:"endpoint" binding:"required"`
 	// 内网端点: 例如 https://oss-cn-shenzhen-internal.aliyuncs.com
-	InternalEndpoint string `json:"internal_endpoint" yaml:"internal_endpoint"`
+	// required
+	InternalEndpoint string `json:"internalEndpoint" yaml:"internalEndpoint" binding:"required"`
 	// 桶名称
-	BucketName string `json:"bucket_name" yaml:"bucket_name"`
+	// required
+	BucketName string `json:"bucketName" yaml:"bucketName" binding:"required"`
+	// cdn: cdn 域名地址
+	CdnDomain string `yaml:"cdnDomain" json:"cdnDomain"`
 	// 根目录
 	Root string `json:"root" yaml:"root"`
 	// 临时目录
 	Temporary string `json:"temporary" yaml:"temporary"`
+}
+
+// GenerateObjectKey 生成对象的key
+// 格式: {root}/{dir}/{uuid}[.{suffix}]
+func (c *Config) GenerateObjectKey(dir, suffix string) string {
+	uq := uuid.New().String()
+	b := strings.Builder{}
+	b.Grow(len(c.Root) + len(dir) + len(uq) + len(suffix) + 3)
+
+	if c.Root != "" {
+		b.WriteString(c.Root)
+		b.WriteString("/")
+	}
+	b.WriteString(dir)
+	b.WriteString("/")
+	b.WriteString(uq)
+	if suffix != "" {
+		b.WriteString(".")
+		b.WriteString(suffix)
+	}
+	return b.String()
+}
+
+// CdnUrl 获取 key 的 cdn url
+func (c *Config) CdnUrl(key string) string {
+	if key == "" || c.CdnDomain == "" {
+		return ""
+	}
+	return c.CdnDomain + "/" + key
 }
 
 type Client struct {
@@ -63,25 +103,4 @@ func (c *Client) R(isIntranet bool) *Instance {
 		&c.Config,
 		client,
 	}
-}
-
-// GenerateObjectKey 生成对象的key
-// 格式: {root}/{dir}/{uuid}[.{suffix}]
-func (c *Client) GenerateObjectKey(dir, suffix string) string {
-	uq := uuid.New().String()
-	b := strings.Builder{}
-	b.Grow(len(c.Root) + len(dir) + len(uq) + len(suffix) + 3)
-
-	if c.Root != "" {
-		b.WriteString(c.Root)
-		b.WriteString("/")
-	}
-	b.WriteString(dir)
-	b.WriteString("/")
-	b.WriteString(uq)
-	if suffix != "" {
-		b.WriteString(".")
-		b.WriteString(suffix)
-	}
-	return b.String()
 }
