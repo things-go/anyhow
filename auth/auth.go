@@ -15,8 +15,8 @@ type Provider interface {
 }
 
 type Account struct {
-	// Subject of the account
-	Subject string `json:"subject,omitempty"`
+	// UserId of the account
+	UserId string `json:"subject,omitempty"`
 	// Type of the account, client, service, user
 	Type string `json:"type,omitempty"`
 	// Issuer of the account

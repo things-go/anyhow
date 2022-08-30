@@ -7,7 +7,6 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v4"
-
 	"github.com/things-go/clip/metadata"
 )
 
@@ -76,6 +75,11 @@ func (sf *JwtProvider) GenerateRefreshToken(id string, acc *Account, timeout tim
 	return sf.generateToken(id, acc, timeout)
 }
 func (sf *JwtProvider) generateToken(id string, acc *Account, timeout time.Duration) (string, time.Time, error) {
+	sub, err := Marshal(&TokenSubject{
+		UserId: acc.UserId,
+		ConnId: id, // 目前先使用 id , 实际用ConnId
+	})
+
 	now := time.Now()
 	expiresAt := now.Add(timeout)
 	token, err := jwt.NewWithClaims(sf.signingMethod, &Claims{
@@ -84,7 +88,7 @@ func (sf *JwtProvider) generateToken(id string, acc *Account, timeout time.Durat
 		Metadata: acc.Metadata,
 		RegisteredClaims: jwt.RegisteredClaims{
 			Issuer:    acc.Issuer,
-			Subject:   acc.Subject,
+			Subject:   sub,
 			ExpiresAt: jwt.NewNumericDate(expiresAt),
 			NotBefore: jwt.NewNumericDate(now),
 			IssuedAt:  jwt.NewNumericDate(now),
@@ -128,8 +132,16 @@ func (sf *JwtProvider) ParseToken(tokenString string) (*Account, error) {
 	if cc.Metadata != nil && cc.ID != "" {
 		cc.Metadata.Set(TokenUniqueId, cc.ID)
 	}
+	tSub := &TokenSubject{}
+	err = Unmarshal(cc.Subject, tSub)
+	if err != nil {
+		return nil, err
+	}
+	if tSub.ConnId != cc.ID {
+		return nil, ErrInvalidToken
+	}
 	return &Account{
-		Subject:  cc.Subject,
+		UserId:   tSub.UserId,
 		Type:     cc.Type,
 		Issuer:   cc.Issuer,
 		Scopes:   cc.Scopes,

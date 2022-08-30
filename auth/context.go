@@ -24,7 +24,7 @@ func FromContext(ctx context.Context) (acc *Account, ok bool) {
 
 func FromSubject(ctx context.Context) int64 {
 	if v, ok := FromContext(ctx); ok {
-		sub, err := strconv.ParseInt(v.Subject, 10, 64)
+		sub, err := strconv.ParseInt(v.UserId, 10, 64)
 		if err == nil {
 			return sub
 		}

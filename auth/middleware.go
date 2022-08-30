@@ -59,7 +59,7 @@ func (sf *Auth) Middleware(opts ...Option) gin.HandlerFunc {
 
 func Subject(c *gin.Context) string {
 	if v, ok := FromContext(c.Request.Context()); ok {
-		return v.Subject
+		return v.UserId
 	}
 	return ""
 }

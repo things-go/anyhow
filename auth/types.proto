@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+// Package internal holds protobuf types used by the server.
+package internal;
+
+option go_package = "github.com/anyhow/auth";
+
+// TokenSubject represents both the subject and connId which is returned
+// as the "sub" claim in the Id Token.
+message TokenSubject {
+  string user_id = 1;
+  string conn_id = 2;
+}
