@@ -75,10 +75,11 @@ func (sf *JwtProvider) GenerateRefreshToken(id string, acc *Account, timeout tim
 	return sf.generateToken(id, acc, timeout)
 }
 func (sf *JwtProvider) generateToken(id string, acc *Account, timeout time.Duration) (string, time.Time, error) {
-	sub, err := Marshal(&TokenSubject{
-		UserId: acc.Uid,
-		ConnId: id, // 目前先使用 id , 实际用ConnId
-	})
+	// 目前 ConnId 字段先使用 id , 实际用 ConnId
+	sub, err := Marshal(&TokenSubject{UserId: acc.Uid, ConnId: id})
+	if err != nil {
+		return "", time.Time{}, err
+	}
 
 	now := time.Now()
 	expiresAt := now.Add(timeout)

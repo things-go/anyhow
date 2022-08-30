@@ -122,7 +122,7 @@ func VerifySign(opts ...SignOption) gin.HandlerFunc {
 			cfg.errorFallback(c, errors.New("无效的timestamp"))
 			return
 		}
-		if cfg.availWindow > 0 && time.Now().Sub(time.UnixMilli(milliTimestamp)) > cfg.availWindow {
+		if cfg.availWindow > 0 && time.Since(time.UnixMilli(milliTimestamp)) > cfg.availWindow {
 			cfg.errorFallback(c, errors.New("该请求已过期失效"))
 			return
 		}

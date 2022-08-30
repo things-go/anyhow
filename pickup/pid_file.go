@@ -1,7 +1,6 @@
 package pickup
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -22,7 +21,7 @@ func WritePidFile(dir ...string) error {
 	}
 	pidFilename := filepath.Join(path, filename+".pid")
 	pid := os.Getpid()
-	return ioutil.WriteFile(pidFilename, []byte(strconv.Itoa(pid)), 0755)
+	return os.WriteFile(pidFilename, []byte(strconv.Itoa(pid)), 0755)
 }
 
 // RemovePidFile 删除默认写到执行文件目录下,并以执行文件名.pid命名的文件.
