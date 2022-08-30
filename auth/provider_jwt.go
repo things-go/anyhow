@@ -76,7 +76,7 @@ func (sf *JwtProvider) GenerateRefreshToken(id string, acc *Account, timeout tim
 }
 func (sf *JwtProvider) generateToken(id string, acc *Account, timeout time.Duration) (string, time.Time, error) {
 	sub, err := Marshal(&TokenSubject{
-		UserId: acc.UserId,
+		UserId: acc.Uid,
 		ConnId: id, // 目前先使用 id , 实际用ConnId
 	})
 
@@ -141,7 +141,7 @@ func (sf *JwtProvider) ParseToken(tokenString string) (*Account, error) {
 		return nil, ErrInvalidToken
 	}
 	return &Account{
-		UserId:   tSub.UserId,
+		Uid:      tSub.UserId,
 		Type:     cc.Type,
 		Issuer:   cc.Issuer,
 		Scopes:   cc.Scopes,

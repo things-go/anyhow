@@ -22,9 +22,9 @@ func FromContext(ctx context.Context) (acc *Account, ok bool) {
 	return
 }
 
-func FromSubject(ctx context.Context) int64 {
+func FromUid(ctx context.Context) int64 {
 	if v, ok := FromContext(ctx); ok {
-		sub, err := strconv.ParseInt(v.UserId, 10, 64)
+		sub, err := strconv.ParseInt(v.Uid, 10, 64)
 		if err == nil {
 			return sub
 		}
@@ -32,8 +32,8 @@ func FromSubject(ctx context.Context) int64 {
 	return 0
 }
 
-func MustFromSubject(ctx context.Context) int64 {
-	if sub := FromSubject(ctx); sub != 0 {
+func MustFromUid(ctx context.Context) int64 {
+	if sub := FromUid(ctx); sub != 0 {
 		return sub
 	}
 	panic("auth: account info must in context, user must auth")
