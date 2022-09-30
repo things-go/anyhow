@@ -2,10 +2,10 @@ package captcha
 
 import (
 	"github.com/mojocn/base64Captcha"
-	"github.com/things-go/clip/limit"
+	"github.com/things-go/clip/verified"
 )
 
-var _ limit.CaptchaProvider = (*Captcha)(nil)
+var _ verified.VerifiedCaptchaDriver = (*Captcha)(nil)
 
 type Captcha struct {
 	d base64Captcha.Driver
@@ -19,13 +19,13 @@ func New(d base64Captcha.Driver) *Captcha {
 
 func (c *Captcha) Name() string { return "base64Captcha" }
 
-func (c *Captcha) GenerateQuestionAnswer() (*limit.QuestionAnswer, error) {
+func (c *Captcha) GenerateQuestionAnswer() (*verified.QuestionAnswer, error) {
 	id, q, a := c.d.GenerateIdQuestionAnswer()
 	it, err := c.d.DrawCaptcha(q)
 	if err != nil {
 		return nil, err
 	}
-	return &limit.QuestionAnswer{
+	return &verified.QuestionAnswer{
 		Id:       id,
 		Question: it.EncodeB64string(),
 		Answer:   a,
