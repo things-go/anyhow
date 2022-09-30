@@ -11,7 +11,7 @@ require (
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/mojocn/base64Captcha v1.3.5
 	github.com/stretchr/testify v1.8.0
-	github.com/things-go/clip v0.0.5
+	github.com/things-go/clip v0.1.0
 	go.uber.org/zap v1.23.0
 	golang.org/x/exp v0.0.0-20220929160808-de9c53c655b9
 	google.golang.org/protobuf v1.28.1
