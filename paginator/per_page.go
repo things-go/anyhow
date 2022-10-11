@@ -62,8 +62,9 @@ func (sf Param2) Value() (limit int64, offset int64) {
 
 func (sf Param2) Limit() clause.Expression {
 	limit, offset := sf.Value()
+	l := int(limit)
 	return clause.Limit{
-		Limit:  int(limit),
+		Limit:  &l,
 		Offset: int(offset),
 	}
 }
