@@ -3,7 +3,7 @@ module github.com/things-go/anyhow
 go 1.18
 
 require (
-	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1802
+	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1808
 	github.com/aliyun/aliyun-oss-go-sdk v2.2.5+incompatible
 	github.com/gin-gonic/gin v1.8.1
 	github.com/golang-jwt/jwt/v4 v4.4.2
@@ -11,9 +11,9 @@ require (
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/mojocn/base64Captcha v1.3.5
 	github.com/stretchr/testify v1.8.0
-	github.com/things-go/clip v0.1.3
+	github.com/things-go/clip v0.1.4
 	go.uber.org/zap v1.23.0
-	golang.org/x/exp v0.0.0-20221011201855-a3968a42eed6
+	golang.org/x/exp v0.0.0-20221012211006-4de253d81b95
 	google.golang.org/protobuf v1.28.1
 	gorm.io/driver/mysql v1.4.1
 	gorm.io/driver/postgres v1.4.4
@@ -55,10 +55,10 @@ require (
 	github.com/ugorji/go/codec v1.2.7 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
-	golang.org/x/crypto v0.0.0-20221010152910-d6f0a8c073c2 // indirect
+	golang.org/x/crypto v0.0.0-20221012134737-56aed061732a // indirect
 	golang.org/x/image v0.0.0-20220902085622-e7cb96979f69 // indirect
-	golang.org/x/net v0.0.0-20221004154528-8021a29435af // indirect
-	golang.org/x/sys v0.0.0-20221010170243-090e33056c14 // indirect
+	golang.org/x/net v0.0.0-20221014081412-f15817d10f9b // indirect
+	golang.org/x/sys v0.0.0-20221013171732-95e765b1cc43 // indirect
 	golang.org/x/text v0.3.8 // indirect
 	golang.org/x/time v0.0.0-20220922220347-f3bd1da661af // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
