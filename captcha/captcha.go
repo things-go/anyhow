@@ -2,10 +2,10 @@ package captcha
 
 import (
 	"github.com/mojocn/base64Captcha"
-	"github.com/things-go/clip/verified"
+	"github.com/things-go/limiter/verified"
 )
 
-var _ verified.VerifiedCaptchaDriver = (*Captcha)(nil)
+var _ verified.CaptchaDriver = (*Captcha)(nil)
 
 type Captcha struct {
 	d base64Captcha.Driver
