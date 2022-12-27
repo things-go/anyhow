@@ -3,18 +3,18 @@ module github.com/things-go/anyhow
 go 1.18
 
 require (
-	github.com/aliyun/alibaba-cloud-sdk-go v1.62.80
+	github.com/aliyun/alibaba-cloud-sdk-go v1.62.105
 	github.com/aliyun/aliyun-oss-go-sdk v2.2.6+incompatible
-	github.com/gin-gonic/gin v1.8.1
+	github.com/gin-gonic/gin v1.8.2
 	github.com/golang-jwt/jwt/v4 v4.4.3
 	github.com/google/uuid v1.3.0
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/mojocn/base64Captcha v1.3.5
 	github.com/stretchr/testify v1.8.1
-	github.com/things-go/clip v0.2.0
+	github.com/things-go/clip v0.2.1
 	github.com/things-go/limiter v0.0.1
 	go.uber.org/zap v1.24.0
-	golang.org/x/exp v0.0.0-20221205204356-47842c84f3db
+	golang.org/x/exp v0.0.0-20221217163422-3c43f8badb15
 	google.golang.org/protobuf v1.28.1
 	gorm.io/driver/mysql v1.4.4
 	gorm.io/driver/postgres v1.4.5
@@ -53,8 +53,8 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/ugorji/go/codec v1.2.7 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
-	go.uber.org/multierr v1.8.0 // indirect
-	golang.org/x/crypto v0.3.0 // indirect
+	go.uber.org/multierr v1.9.0 // indirect
+	golang.org/x/crypto v0.4.0 // indirect
 	golang.org/x/image v0.2.0 // indirect
 	golang.org/x/net v0.4.0 // indirect
 	golang.org/x/sys v0.3.0 // indirect
