@@ -31,7 +31,7 @@ import (
 // 请求头:
 //  Timestamp: 时间戳, 单位ms
 //  Secret: randomKey的密文, 即上述 secret
-//  AesCbcEncrypt: 是否加密消息体, 1: 表示加密, 0: 表示不加密
+//  Encrypt: 是否加密消息体, 1: 表示加密, 0: 表示不加密
 //  Sign: 签名, 即上述 sign
 
 // SignOption 签名选项
@@ -144,7 +144,7 @@ func VerifySign(opts ...SignOption) gin.HandlerFunc {
 		var cipherBody string
 
 		if len(body) > 0 {
-			encrypt := c.GetHeader("AesCbcEncrypt") // 是否加密body
+			encrypt := c.GetHeader("Encrypt") // 是否加密body
 			if encrypt == "1" {
 				cipherBody = *(*string)(unsafe.Pointer(&body))
 				origBody, err = signature.AesCbcDecrypt(randomKey, cipherBody)
