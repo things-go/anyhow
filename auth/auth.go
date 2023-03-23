@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/things-go/clip/lookup"
-	"github.com/things-go/clip/metadata"
+	"github.com/things-go/anyhow/auth/metadata"
+	"github.com/things-go/x/lookup"
 )
 
 type Provider interface {

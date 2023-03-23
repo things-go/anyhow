@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v4"
-	"github.com/things-go/clip/metadata"
+	"github.com/things-go/anyhow/auth/metadata"
 )
 
 // Claims jwt claims

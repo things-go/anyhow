@@ -6,10 +6,10 @@ require (
 	github.com/gin-gonic/gin v1.9.0
 	github.com/golang-jwt/jwt/v4 v4.5.0
 	github.com/stretchr/testify v1.8.2
-	github.com/things-go/clip v0.2.1
 	github.com/things-go/limiter v0.0.3
+	github.com/things-go/x v0.1.1
 	go.uber.org/zap v1.24.0
-	golang.org/x/exp v0.0.0-20230315142452-642cacee5cc0
+	golang.org/x/exp v0.0.0-20230321023759-10a507213a29
 	google.golang.org/protobuf v1.30.0
 )
 
@@ -25,7 +25,7 @@ require (
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.4 // indirect
 	github.com/leodido/go-urn v1.2.2 // indirect
-	github.com/mattn/go-isatty v0.0.17 // indirect
+	github.com/mattn/go-isatty v0.0.18 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.7 // indirect

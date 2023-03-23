@@ -12,7 +12,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/things-go/clip/signature"
+	"github.com/things-go/x/clip/signature"
 )
 
 // 签名验证过程
